@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-svgstore": "~0.4.1"
+    "grunt-svgstore": "~0.4.1",
+    "grunt-svgmin": "2.0.0",
+    "grunt-svginjector": "~0.1"
+  },
+  "author": {
+    "name": "FruityFred",
+    "email": "fred@fruityfred.com",
+    "url": "http://fruityfred.com"
+  },
+  "repository": {
+	"type" : "git",
+	"url": "http://github.com/fruityfred/SVG-Icons.git"
   }
 }

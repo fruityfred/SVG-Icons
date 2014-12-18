@@ -1,6 +1,8 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-svgstore');
+	grunt.loadNpmTasks('grunt-svgmin');
+	grunt.loadNpmTasks('grunt-svginjector');
 
 	grunt.initConfig({
 		svgstore: {
@@ -15,12 +17,31 @@ module.exports = function(grunt) {
 			},
 			icons : {
 				files: {
-					'dest/dest.svg': ['*.svg'],
+					'dest/fruityfred-icons.svg': ['*.svg'],
 				},
 			},		
 		},
+		
+		svgmin: {
+	        dist: {
+    	        files: {
+        	        'dest/fruityfred-icons-min.svg': 'dest/fruityfred-icons.svg'
+            	}
+	        }
+	    },
+	    
+	    svginjector: {
+			icons : {
+				files: {
+					'dest/fruityfred-icons.js': ['dest/fruityfred-icons-min.svg']
+				},
+				options: {
+					container: 'icon-container'
+				}
+			}
+		}
 	});
 
-	grunt.registerTask('default', ['svgstore:icons']);
+	grunt.registerTask('default', ['svgstore:icons', 'svgmin', 'svginjector:icons']);
 };
 
