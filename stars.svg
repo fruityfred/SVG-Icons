@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="512px" height="512px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g>
+        <g id="Layer1">
+            <g>
+                <path d="M464.281,12.2247L466.055,65.3598L512,86.5739L464.133,106.623L457.415,159.652L426.058,118.908L375.96,130.468L404.447,85.238L380.204,39.3528L429.167,52.1433L464.281,12.2247Z" style="fill:black;"/>
+            </g>
+            <g>
+                <path d="M322.852,77.669L343.434,158.638L421.093,175.761L354.354,222.625L361.865,306.287L300.035,254.282L227.018,288.866L255.545,209.86L202.907,147.572L282.367,150.749L322.852,77.669Z" style="fill:black;"/>
+            </g>
+            <g>
+                <path d="M150,208.5L191.983,314.804L300,324.427L217.93,399.749L242.705,512L150,452.248L57.2949,512L82.0703,399.749L0,324.427L108.017,314.804L150,208.5Z" style="fill:black;"/>
+            </g>
+        </g>
+    </g>
+</svg>
