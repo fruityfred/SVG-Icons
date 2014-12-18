@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+    <meta charset="utf-8">
+	<title>FruityFred's SVG icons preview</title>
+    <style>
+		#icon-container {
+			display: none;
+		}
+		.icon {
+			display: inline-block;
+		}
+		.icon-s {
+			width: 1em;
+			height: 1em;
+		}
+		.icon-m {
+			width: 2em;
+			height: 2em;
+		}
+		.icon-l {
+			width: 3em;
+			height: 3em;
+		}
+		.icon-xl {
+			width: 5em;
+			height: 5em;
+		}
+		.icon-margin {
+			margin: 5px;
+		}
+		.icon use {
+			stroke: #000;
+			fill: #000;
+		}
+		h1 {
+			border-bottom: 1px dotted silver;
+		}
+		body {
+			font-family: Helvetica, sans-serif;
+		}
+    </style>
+    <script>
+	var icons = ###ICONS###
+	</script>    
+  <head>
+  <body>
+  	<div id="icon-container"></div>
+    <script src="fruityfred-icons.js"></script>
+  	
+  	<h1>Small</h1>
+	<script>
+	for (var i=0;i<icons.length;i++) {
+		document.write("<svg class='icon icon-s icon-margin'><use xlink:href='#icon-" + icons[i] + "'/></svg>");
+	}
+	</script>  	
+
+  	<h1>Medium</h1>
+	<script>
+	for (var i=0;i<icons.length;i++) {
+		document.write("<svg class='icon icon-m icon-margin'><use xlink:href='#icon-" + icons[i] + "'/></svg>");
+	}
+	</script>  	
+
+  	<h1>Large</h1>
+	<script>
+	for (var i=0;i<icons.length;i++) {
+		document.write("<svg class='icon icon-l icon-margin'><use xlink:href='#icon-" + icons[i] + "'/></svg>");
+	}
+	</script>  	
+
+  	<h1>Extra large</h1>
+	<script>
+	for (var i=0;i<icons.length;i++) {
+		document.write("<svg class='icon icon-xl icon-margin'><use xlink:href='#icon-" + icons[i] + "'/></svg>");
+	}
+	</script>  	
+
+  </body>
+</html>

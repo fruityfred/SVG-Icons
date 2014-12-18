@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-svgstore');
-	grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-svginjector');
 
 	grunt.initConfig({
@@ -13,7 +12,9 @@ module.exports = function(grunt) {
 					version: '1.1'
 				},
 				inheritviewbox: true,
-				includedemo: true
+				convertNameToId: function(name) {
+            		return name.replace(/^\w+\_/, '');
+          		}
 			},
 			icons : {
 				files: {
@@ -22,26 +23,44 @@ module.exports = function(grunt) {
 			},		
 		},
 		
-		svgmin: {
-	        dist: {
-    	        files: {
-        	        'dest/fruityfred-icons-min.svg': 'dest/fruityfred-icons.svg'
-            	}
-	        }
-	    },
-	    
 	    svginjector: {
 			icons : {
 				files: {
-					'dest/fruityfred-icons.js': ['dest/fruityfred-icons-min.svg']
+					'dest/fruityfred-icons.js': ['dest/fruityfred-icons.svg']
 				},
 				options: {
 					container: 'icon-container'
 				}
 			}
+		},
+		
+		createhtmldemo: {
+			default: {
+				files: {
+					'dest/demo.html': ['*.svg']
+				}
+			}
 		}
 	});
+	
+	
+	grunt.registerMultiTask('createhtmldemo', 'Creates the HTML demo file.', function(a, b) {
+		var path = require('path');
+		
+		var	demoJS = grunt.file.read('demo-tpl.html'),
+			icons = [];
 
-	grunt.registerTask('default', ['svgstore:icons', 'svgmin', 'svginjector:icons']);
+		this.files.forEach(function(file) {
+			grunt.log.writeln(file.src.length + ' icons found.');
+			file.src.forEach(function (svgFile) {
+				icons.push(path.basename(svgFile, '.svg'));
+			});
+			demoJS = demoJS.replace('###ICONS###', "['" + icons.join("','") + "'];");
+			grunt.file.write(file.dest, demoJS);
+			grunt.log.writeln('Demo generated for ' + file.src.length + ' icons.');
+		});
+	});
+
+	grunt.registerTask('default', ['svgstore:icons', 'svginjector:icons', 'createhtmldemo']);
 };
 
